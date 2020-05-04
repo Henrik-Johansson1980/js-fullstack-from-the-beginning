@@ -11,7 +11,7 @@ if(port == null || port == ""){
 
 app.use(express.static('public'))
 
-let connetctionString = 'mongodb+srv://todoAppUser:<Password>@cluster0-dapll.mongodb.net/TodoApp?retryWrites=true&w=majority'
+let connetctionString = 'mongodb+srv://todoAppUser:LDLZIEuMd16lmMrw@cluster0-dapll.mongodb.net/TodoApp?retryWrites=true&w=majority'
 
 mongodb.connect( 
   connetctionString,
@@ -27,7 +27,7 @@ app.use(express.urlencoded({extended: false}))
 
 function  passwordProtected (req, res, next) {
   res.set('WWW-Authenticate', 'Basic realm="Simple Todo App"')
-  if(req.headers.authorization == "Placeholder"){
+  if(req.headers.authorization == "Basic bGVhcm5pbmc6amF2YXNjcmlwdF9wcm9ncmFtbWluZw=="){
     next()
   } else {
     res.status(401).send("Authentication Required")
